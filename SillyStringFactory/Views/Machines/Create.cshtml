@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SillyStringFactory.Models.Machine
+
+<h4>Add a new machine</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <input type="submit" value="Add" class="btn btn-default" />
+}
+<!-- <p>@Html.ActionLink("Show all stages", "Index")</p> -->
