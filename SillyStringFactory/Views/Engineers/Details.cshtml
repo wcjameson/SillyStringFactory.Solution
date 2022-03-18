@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SillyStringFactory.Models.Engineer
+
+<h2> Engineer Details </h2>
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p> This engineer isn't working on any machines</p>
+}
+else
+{
+  <h4> Machines this Engineer can service: </h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@join.Machine.Description</li>
+      @using (Html.BeginForm("DeleteMachine", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.MachineEngineerId)
+        <input type="submit" value="Delete" />
+      }
+    }
+  </ul>
+}
+<p>@Html.ActionLink("Add Machine", "Add Machine", new { id = Model.EngineerId})</p>
+<p>@Html.ActionLink("Edit", "Edit", new{id = Model.EngineerId})</p>
+<p>@Html.ActionLink("Delete", "Delete", new{id = Model.EngineerId})</p>
+<!-- <p>@Html.ActionLink("Back", "Index")</p> -->
+<!-- <p>@Html.ActionLink("Return Home", "Index", "Home")</p> -->

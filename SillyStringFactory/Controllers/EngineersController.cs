@@ -38,5 +38,13 @@ namespace SillyStringFactory.Controllers
       }
       return RedirectToAction("Index");
     }
+    public ActionResult Details(int id)
+    {
+      var thisEngineer = _db.Engineers
+        .Include(thisEngineer => thisEngineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(thisEngineer => thisEngineer.EngineerId == id);
+      return View(thisEngineer);
+    }
   }
 }
