@@ -4,9 +4,9 @@
 
 @model SillyStringFactory.Models.Engineer
 
-<h2> Engineer Details </h2>
+<h1> Engineer Details </h1>
 
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h2>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h2>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -14,7 +14,7 @@
 }
 else
 {
-  <h4> Machines this Engineer can service: </h4>
+  <h2> Machines this Engineer can service: </h2>
   <ul>
     @foreach (var join in Model.JoinEntities)
     {
@@ -27,7 +27,7 @@ else
     }
   </ul>
 }
-<p>@Html.ActionLink("Add Machine", "Add Machine", new { id = Model.EngineerId})</p>
+<p>@Html.ActionLink("Add Machine", "AddMachine", new { id = Model.EngineerId})</p>
 <p>@Html.ActionLink("Edit", "Edit", new{id = Model.EngineerId})</p>
 <p>@Html.ActionLink("Delete", "Delete", new{id = Model.EngineerId})</p>
 <!-- <p>@Html.ActionLink("Back", "Index")</p> -->
