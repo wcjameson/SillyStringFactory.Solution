@@ -22,11 +22,11 @@ This webapp allows the user to add and organize different engineers and differen
 * In your terminal enter the following
 * git clone https://github.com/wcjameson/SillyStringFactory.Solution
 * Install MySql
-* You will need to use MySql Workbench to import the database schema with the .sql filetype, located in the SillyStringFactory.Solution directory
-* In MySql Workbench, navigate to the administration tab, and select Data Import/Restore
-* Import from Self-Contained File (the schema with filetype .sql)
-* Make sure to create a connection to the database schema that was imported
-* Do this by creating an appsettings.json file in the HairSalon project directory
+* In the production directory, run the following command
+* dotnet ef database update
+* This will apply the latest migration, to setup the database
+* Make sure to create a connection to the database that was created
+* Do this by creating an appsettings.json file in the Factory project directory
 * It should look like this
 `{
   "ConnectionStrings": {
@@ -34,7 +34,7 @@ This webapp allows the user to add and organize different engineers and differen
   }
 }`
 * User id and password will be your own
-* Open the project in your terminal, navigate to the HairSalon.Solution directory, and enter the following
+* Open the project in your terminal, navigate to the Factory directory, and enter the following
 * dotnet restore
 * dotnet build
 * dotnet run
